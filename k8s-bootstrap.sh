@@ -4,10 +4,11 @@ set -e
 
 sudo usermod -aG docker vagrant
 
-wget https://raw.githubusercontent.com/openstack/fuel-ccp-installer/master/registry/registry-pod.yaml /tmp
-wget https://raw.githubusercontent.com/openstack/fuel-ccp-installer/master/registry/service-registry.yaml /tmp
-kubectl create -f /tmp/registry-pod.yaml --namespace=kube-system
-kubectl create -f /tmp/service-registry.yaml --namespace=kube-system
+wget https://raw.githubusercontent.com/openstack/fuel-ccp-installer/master/registry/registry-pod.yaml -O /tmp/pod.yaml
+wget https://raw.githubusercontent.com/openstack/fuel-ccp-installer/master/registry/service-registry.yaml -O /tmp/service.yaml
+kubectl create -f /tmp/pod.yaml --namespace=kube-system
+kubectl create -f /tmp/service.yaml --namespace=kube-system
+rm -f /tmp/pod.yaml /tmp/service.yaml
 
 sudo apt install -y python3-dev
 
