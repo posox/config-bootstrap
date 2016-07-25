@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo "Put .vimrc"
+echo "put .vimrc"
 cat << "EOF" > ~/.vimrc
 filetype plugin indent on
 
@@ -206,4 +206,32 @@ hi link helpExample Number
 hi link helpNumber String
 hi helpURL ctermfg=110 guifg=#87afdf                           cterm=underline gui=underline
 hi link helpHyperTextEntry helpURL
+EOF
+
+echo "put .gitconfig"
+cat << "EOF" > ~/.gitconfig
+[user]
+    name = Sergey Reshetnyak
+    email = sreshetniak@mirantis.com
+[core]
+    editor = vim
+    pager = less
+[color]
+    ui = true
+[merge]
+    tool = vimdiff
+[gitreview]
+    username = sreshetniak
+[push]
+    default = current
+[alias]
+    st = status
+    ca = commit
+    co = checkout
+    br = branch
+[log]
+    decorate = true
+    showroot = true
+[diff]
+    tool = vimdiff
 EOF
